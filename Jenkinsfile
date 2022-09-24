@@ -23,7 +23,6 @@ pipeline {
       parallel {
         stage('TAG AND PUSH') {
           steps {
-            sh 'docker build -t jenops .'
             sh 'docker image tag jenops s4nfs/jenops:latest'
           }
         }
