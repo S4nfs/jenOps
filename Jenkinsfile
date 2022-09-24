@@ -15,7 +15,7 @@ pipeline {
 
     stage('build docker image') {
       steps {
-        sh 'docker build . -t jenOps by S4nfs'
+        sh 'docker build . -t jenops'
       }
     }
 
