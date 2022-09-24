@@ -15,13 +15,13 @@ pipeline {
 
     stage('build docker image') {
       steps {
-        sh 'docker build . -t jenops'
+        sh 'docker build -t jenops .'
       }
     }
 
     stage('TAG AND PUSH') {
       steps {
-        sh 'docker push s4nfs/jenops'
+        sh 'docker image push s4nfs/jenops'
       }
     }
 
