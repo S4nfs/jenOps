@@ -20,8 +20,20 @@ pipeline {
     }
 
     stage('TAG AND PUSH') {
-      steps {
-        sh 'docker image push s4nfs/jenops'
+      parallel {
+        stage('TAG AND PUSH') {
+          steps {
+            sh 'docker build -t jenops .'
+            sh 'docker image tag jenops s4nfs/jenops:latest'
+          }
+        }
+
+        stage('push') {
+          steps {
+            sh 'docker push s4nfs/jenops:latest'
+          }
+        }
+
       }
     }
 
