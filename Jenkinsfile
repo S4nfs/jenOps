@@ -7,5 +7,11 @@ pipeline {
       }
     }
 
+    stage('node modules') {
+      steps {
+        sh 'npm i'
+      }
+    }
+
   }
 }
